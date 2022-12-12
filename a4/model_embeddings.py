@@ -52,7 +52,10 @@ class ModelEmbeddings(nn.Module):
         ###     Embedding Layer:
         ###         https://pytorch.org/docs/stable/nn.html#torch.nn.Embedding
         
+        # Count the number of words in source vocab to get the embedding size
 
+        self.source = nn.Embedding(len(vocab.src), self.embed_size)
+        self.target = nn.Embedding(len(vocab.tgt), self.embed_size)
 
         ### END YOUR CODE
 

@@ -31,15 +31,8 @@ def pad_sents(sents, pad_token):
         than the max length sentence are padded out with the pad_token, such that
         each sentences in the batch now has equal length.
     """
-    sents_padded = []
-
-    ### YOUR CODE HERE (~6 Lines)
-
-
-
-    ### END YOUR CODE
-
-    return sents_padded
+    max_length = max([len(sublist) for sublist in sents])
+    return [sublist + [pad_token]*(max_length - len(sublist)) for sublist in sents]
 
 
 def read_corpus(file_path, source, vocab_size=2500):
